@@ -54,3 +54,34 @@ class Transaction:
         self.time = time
         self.nonce = nonce
         self.signature = signature
+
+
+class BlockHeader:
+    __slots__ = (
+        "version",
+        "previous_header_hash",
+        "merkle_root_hash",
+        "time",
+        "n_bits",
+        "nonce",
+    )
+
+    def __init__(
+        self,
+        version: int,
+        previous_header_hash: bytes,
+        merkle_root_hash: bytes,
+        time: int,
+        n_bits: int,
+        nonce: int
+    ):
+        self.version = version
+        self.previous_header_hash = previous_header_hash
+        self.merkle_root_hash = merkle_root_hash
+        self.time = time
+        self.n_bits = n_bits
+        self.nonce = nonce
+
+    def serialize(self):
+        data = f"{version} {previous_header_hash}{merkle_root_hash}{time} {n_bits} {nonce}"
+        return data.encode("utf-8")
