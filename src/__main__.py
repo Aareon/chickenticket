@@ -26,3 +26,31 @@ class MessageHeader:
         self.command: int = command.value()
         self.payload_size = payload_size
         self.checksum = checksum
+
+
+class Input:
+    """Stub class for Transaction input"""
+    pass
+
+
+class Output:
+    """Stub class for Transaction output"""
+    pass
+
+
+class Transaction:
+    def __init__(
+        self,
+        version: int,
+        inputs: List[Input],
+        outputs: List[Outputs],
+        time: int,
+        nonce: int,
+        signature: bytes
+    ):
+        self.version = version
+        self.inputs = inputs
+        self.outputs = outputs
+        self.time = time
+        self.nonce = nonce
+        self.signature = signature
